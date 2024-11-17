@@ -10,6 +10,8 @@ import com.fullstackAssignment.studentManagementSystem.model.Student;
 import com.fullstackAssignment.studentManagementSystem.repo.STUDENT_REPOSITORY;
 import com.fullstackAssignment.studentManagementSystem.service.STUDENT_SERVICE;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class StudentIMPL implements STUDENT_SERVICE{
 
@@ -60,6 +62,24 @@ if(student.isPresent()){
 
   student_repository.save(existingStudent);
   return existingStudent;
+  }
+
+  @Override
+  public List<Student> getStudentsByEnrollmentYear(int yearOfEnrollment) {
+    return student_repository.findByYearOfEnrollment(yearOfEnrollment);
+    
+  }
+
+  @Override
+  public String findDepartmentNameByStudentId(int StudentID) {
+    return student_repository.findDepartmentNameByStudentId(StudentID);
+  
+  }
+
+  @Override
+  @Transactional
+  public void deleteStudentsByYear(int year) {
+      student_repository.deleteByYearOfEnrollment(year);
   }
 
 

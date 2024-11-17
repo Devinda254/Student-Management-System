@@ -10,5 +10,8 @@ List<Student> getAllStudent();
 Student getStudentByID(int id);
 Student updateStudent(Student student,int id);
 void deleteStudent(int id);
+List<Student> getStudentsByEnrollmentYear(int year);
+String findDepartmentNameByStudentId(int StudentID);
+void deleteStudentsByYear(int year);
 
 }

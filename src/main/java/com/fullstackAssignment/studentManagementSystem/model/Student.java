@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "student_table")
+@Table(name = "student_table_new")
 public class Student {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,7 @@ public class Student {
   @Column(name = "department",nullable = false)
   private String department;
 
-  @Column(name = "year_of_enroll",nullable = false)
+  @Column(name = "yearOfEnrollment",nullable = false)
   private int yearOfEnrollment;
 
 

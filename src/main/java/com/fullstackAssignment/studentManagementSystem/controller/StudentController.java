@@ -54,6 +54,23 @@ student_service.deleteStudent(id);
 return new ResponseEntity<String>("Student deleted successfully",HttpStatus.OK);
 }
 
+@GetMapping(path = "/by-enrollment-year/{year}")
+public List<Student> findByYearOfEnrollment(@PathVariable(value = "year") int yearOfEnrollment) {
+    return student_service.getStudentsByEnrollmentYear(yearOfEnrollment);
+}
+
+@GetMapping("/{studentId}/department")
+public String getDepartmentByStudentId(@PathVariable(value = "studentId") int studentId) {
+    return student_service.findDepartmentNameByStudentId(studentId);
+}
+
+@DeleteMapping("/{yearOfEnrollment}/deleteByYear")
+public String deleteStudentsByYear(@PathVariable(value="yearOfEnrollment") int year) {
+    student_service.deleteStudentsByYear(year); 
+    return "deleted";
+}
+
+
 }
 
 
